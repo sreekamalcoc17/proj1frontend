@@ -1,0 +1,92 @@
+<div class="container" id="home-container">
+	<div id="home-page">
+		<h1 id="employee-view2">WELCOME</h1><br>
+		<h1 id="manager-view3">WELCOME</h1><br>
+		<div id="user-info" hidden="true">
+			<b>User ID:</b> <span id="user_id"></span><br><br>
+			<b>First name:</b> <span id="user_fn"></span><br><br>
+			<b>Last name:</b> <span id="user_ln"></span><br><br>
+			<b>Email address:</b> <span id="user_email"></span><br><br>
+			<b>Username:</b> <span id="user_username"></span><br><br>
+			<b>Password:</b> <span id="user_password"></span><br><br>
+			<b>TYPE:</b> <span id="user_type"></span><br><br>
+		</div>
+
+		<div class="container" id="register-container">
+			<form class="form" id="registration-form">
+				<div class="form-group">
+					<label for="amount">Amount</label> 
+					<input type="number" id="amount" placeholder="Amount">
+				</div>
+				<div class="form-group">
+					<label for="description">Description</label> 
+					<input type="text" id="description" placeholder="Description">
+				</div>
+				<div class="form-group">
+					<label for="type">type</label> 
+					<select id="type">
+						<option value="1">Lodging</option>
+						<option value="2">Travel</option>
+						<option value="3">Food</option>
+						<option value="4">Other</option>
+					</select>
+				</div>
+			</form>
+		</div>
+		
+		<div>
+		<input type="text" hidden = 'true' id="id" placeholder="Description">
+		<input type="text" hidden = 'true' id="status" placeholder="Description">
+		</div>
+
+		<button type="button" id="employee-view1" class="btn btn-primary float-left" onclick="createTicket()">Create</button>
+		<button type="button" id="manager-view1" class="btn btn-success float-right" onclick="updateStatus(2)">APPROVE</button>
+		<button type="button" id="manager-view2" class="btn btn-danger float-right" onclick="updateStatus(3)">DENY</button>
+			
+
+				
+			</tbody>
+		<hr>
+		
+		<table class="table" id="employee-view">
+			
+			<thead>
+				<tr>
+					<th scope="col">Description</th>
+					<th scope="col">Amount</th>
+					<th scope="col">Type</th>
+					<th scope="col">Date Submitted</th>
+					<th scope="col">Date Resolved</th>
+					<th scope="col">Status</th>
+				</tr>
+
+			</thead>
+			
+			<tbody id="employee-body">
+				
+			</tbody>
+			
+		</table>
+		
+		<table class="table" id="manager-view">
+			
+			<thead>
+				<tr>
+					<th scope="col">Description</th>
+					<th scope="col">Amount</th>
+					<th scope="col">Type</th>
+					<th scope="col">Date Submitted</th>
+					<th scope="col">Date Resolved</th>
+					<th scope="col">Status</th>
+				</tr>
+			</thead>
+			
+			<tbody id='manager-body'>
+				<tr>
+
+				</tr>
+			</tbody>
+			
+		</table>
+	</div>
+</div>

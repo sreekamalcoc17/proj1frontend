@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+</head>
+<body>
+    <form>
+        <input type="text" id= "un" name="username"/><br/>
+        <input type="text" id = "ps" name="password"/><br/>
+        <button type="button" onclick="demo()">submit</button>
+        </form>
+        <p id = "myData"></p>
+
+    <script>
+        async function demo(){
+            var un1 = document.getElementById('un').value;
+            var ps1 = document.getElementById('ps').value;
+            var obj1 = {email:un1,password:ps1,designation:"emp"};
+            await fetch("http://localhost:8080/expReimbursement/webapi/index/login",{
+                body: JSON.stringify(obj1),
+                headers:{
+                    "Content-Type": "application/json",
+                },
+                method:"POST"
+            })
+            .then((response)=>response.json())
+            .then((json)=>disp(json))
+            .catch(err=>console.log('Request failed'));
+            // const response = await fetch("http://localhost:8080/expReimbursement/webapi/index/login",{
+            //     body: JSON.stringify(obj1),
+            //     headers:
+            //         [['Content-Type', 'application/json']]
+
+            //         //"Content-Type": "application/json",
+            //     ,
+            //     method:"POST"
+            // });
+            // const userdata = response.status === 200 && await response.json();
+            // if (userdata) {
+            //     document.cookie=`user=${userdata[0].id}; expires= Sat, 07 August 2021 12:00:00 UTC; path=index/`;
+            //     window.location.href = 'index2.html';
+            // }
+            // else{
+            //     alert("incorrect");
+            // }
+
+            function disp(res){
+                if(res.status === "true"){
+                    window.location.href = "index2.html";
+                }
+                else{
+                    alert("incorrect password");
+                }
+            }
+        }
+    </script>
+</body>
+</html>
